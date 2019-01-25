@@ -8,16 +8,15 @@ public class MovimientoNaranja : MonoBehaviour
     public GameObject player;
     public float acceleration;
     public float jump;
-    public Vector2 actualSpeed;
     public float maxSpeed;
     bool onGround;
+    public Vector2 actualSpeed;
+
     private Rigidbody2D playerRigidbody;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = player.GetComponent<Rigidbody2D>();
-
     }
     void OnCollisionStay2D(Collision2D collision)
     {
@@ -30,29 +29,35 @@ public class MovimientoNaranja : MonoBehaviour
     void Update()
     {
         playerRigidbody = player.GetComponent<Rigidbody2D>();
-        Vector2 pos = Vector2.zero;
+        Vector2 force = Vector2.zero;
         if (Input.GetKey(KeyCode.Space) && onGround)
         {
-            pos.y = jump;
-            playerRigidbody.AddForce(pos);
+            force.y = jump;
+            playerRigidbody.AddForce(force);
             onGround = false;
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.anyKey)
         {
-            if (actualSpeed.x > -maxSpeed)
+            //TODO: Desactivar friccion mientras esta en movimiento, volver a activar cuando se deja de presionar (Antes de agregar la fuerza)
+            if (Input.GetKey(KeyCode.A))
             {
-                pos.x = -acceleration;
-                playerRigidbody.AddForce(pos);
+                if (actualSpeed.x > -maxSpeed)
+                {
+                    force.x = -acceleration;
+                }
             }
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (actualSpeed.x < maxSpeed)
+            if (Input.GetKey(KeyCode.D))
             {
-                pos.x = acceleration;
-                playerRigidbody.AddForce(pos);
+                if (actualSpeed.x < maxSpeed)
+                {
+                    force.x = acceleration;
+                }
             }
+            playerRigidbody.AddForce(force);
+
         }
         actualSpeed = playerRigidbody.GetComponent<Rigidbody2D>().velocity;
     }
+
+
 }
