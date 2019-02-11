@@ -112,38 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &682478891 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5915421423118357098, guid: d69c8779fd5aead43ae42907fe0f0109,
-    type: 3}
-  m_PrefabInstance: {fileID: 5915421422465238068}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &682478892
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682478891}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.007366795}
-  m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.14526641}
-  m_EdgeRadius: 0
 --- !u!1 &1052874179 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1162867408827394871, guid: bba448e0e0464234dbf2b50d5a4b64a8,
@@ -314,6 +282,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1052874180, guid: bba448e0e0464234dbf2b50d5a4b64a8, type: 3}
+      propertyPath: jumpForce.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052874180, guid: bba448e0e0464234dbf2b50d5a4b64a8, type: 3}
+      propertyPath: xSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052874180, guid: bba448e0e0464234dbf2b50d5a4b64a8, type: 3}
+      propertyPath: dashSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052874180, guid: bba448e0e0464234dbf2b50d5a4b64a8, type: 3}
+      propertyPath: walkDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052874180, guid: bba448e0e0464234dbf2b50d5a4b64a8, type: 3}
+      propertyPath: dashVector.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052874180, guid: bba448e0e0464234dbf2b50d5a4b64a8, type: 3}
+      propertyPath: dashVector.x
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bba448e0e0464234dbf2b50d5a4b64a8, type: 3}
 --- !u!1001 &5915421422465238068
@@ -323,19 +315,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_UsedByComposite
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5915421423118357098, guid: d69c8779fd5aead43ae42907fe0f0109,
         type: 3}
       propertyPath: m_Name
       value: Groud
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915421423118357098, guid: d69c8779fd5aead43ae42907fe0f0109,
-        type: 3}
-      propertyPath: m_TagString
-      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 5915421423118357077, guid: d69c8779fd5aead43ae42907fe0f0109,
         type: 3}
@@ -390,11 +373,6 @@ PrefabInstance:
     - target: {fileID: 5915421423118357077, guid: d69c8779fd5aead43ae42907fe0f0109,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5915421423118357077, guid: d69c8779fd5aead43ae42907fe0f0109,
-        type: 3}
-      propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
