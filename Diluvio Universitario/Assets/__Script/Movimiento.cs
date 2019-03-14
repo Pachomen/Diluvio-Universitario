@@ -12,7 +12,6 @@ public class Movimiento : MonoBehaviour
     public float joyX;
     public float joyY;
     public float joyMaxScale;
-    public int walkDirection;
     public bool onGround;
     public Vector2 jumpForce;
     public Text gt;
@@ -38,7 +37,7 @@ public class Movimiento : MonoBehaviour
             onGround = false;
         }
     }
-    
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -64,7 +63,7 @@ public class Movimiento : MonoBehaviour
                         x = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
                         x-= new Vector2(touchReference.transform.position.x, touchReference.transform.position.y);
                         //x.Normalize();
-                        angulo = Mathf.Atan2(x.y, x.x) * Mathf.Rad2Deg;
+                        //angulo = Mathf.Atan2(x.y, x.x) * Mathf.Rad2Deg;
                         //gt.text = "angulo: " + angulo.ToString() + "°";
                         //gt.text = "Vector: " + x.ToString();
                         if ((Mathf.Abs(x.x) > Mathf.Abs(x.y)) && Mathf.Abs(x.x) < joyMaxScale )
@@ -93,12 +92,10 @@ public class Movimiento : MonoBehaviour
         //else if ((angulo > 135f || angulo < -135f) && moving)
         //{
         //    player.GetComponent<Rigidbody2D>().velocity = new Vector2(-xSpeed, player.GetComponent<Rigidbody2D>().velocity.y);
-        //    walkDirection = -1;
         //}
         //else if ((angulo < 45f || angulo < -45f) && moving)
         //{
         //    player.GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed, player.GetComponent<Rigidbody2D>().velocity.y);
-        //    walkDirection = 1;
         //}
         //if (!moving)
         //{
@@ -113,13 +110,11 @@ public class Movimiento : MonoBehaviour
         //}
         //else if ((x.x < -0.4f) && moving)
         //{
-        //    player.GetComponent<Rigidbody2D>().velocity = new Vector2(-xSpeed, player.GetComponent<Rigidbody2D>().velocity.y);
-        //    walkDirection = -1;
+        //    player.GetComponent<Rigidbody2D>().velocity = new Vector2(-xSpeed, player.GetComponent<Rigidbody2D>().velocity.y;
         //}
         //else if ((x.x > 0.4f) && moving)
         //{
         //    player.GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed, player.GetComponent<Rigidbody2D>().velocity.y);
-        //    walkDirection = 1;
         //}
         //if (!moving)
         //{
@@ -135,12 +130,10 @@ public class Movimiento : MonoBehaviour
         else if ((x.x < -joyX) && moving)
         {
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(-xSpeed, player.GetComponent<Rigidbody2D>().velocity.y);
-            walkDirection = -1;
         }
         else if ((x.x > joyX) && moving)
         {
             player.GetComponent<Rigidbody2D>().velocity = new Vector2(xSpeed, player.GetComponent<Rigidbody2D>().velocity.y);
-            walkDirection = 1;
         }
         if (!moving)
         {
